@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 20px 0;
+  font-family: sans-serif;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.page-builder {
+  display: flex;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.page-builder > .canvas-container,
+.page-builder .main-canvas {
+  display: flex;
+}
+
+.page-builder .main-canvas {
+  flex: 1;
+}
