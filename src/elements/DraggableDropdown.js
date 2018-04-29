@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormGroup, Label, Input, Col, Row } from 'reactstrap';
 
-import { Draggable } from '../react-page-maker/index.js';
+import { Draggable } from 'react-page-maker';
 
 const DraggableDropdown = (props) => {
   const { showBasicContent, ...rest }= props;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 
-import { Draggable, Dropzone } from '../react-page-maker/index.js';
+import { Draggable, Dropzone } from 'react-page-maker';
 
 class DraggableLayoutR3C3 extends Component {
   _onDrop = (data, cb) => {

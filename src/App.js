@@ -9,7 +9,7 @@ import {
   Trash,
   core,
   registerPaletteElements
-} from './react-page-maker/index.js';
+} from 'react-page-maker';
 
 import { elements } from './const';
 import DraggableTextbox from './elements/DraggableTextbox';

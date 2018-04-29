@@ -1,0 +1,3 @@
+[submodule "src/lib/react-page-maker"]
+	path = src/lib/react-page-maker
+	url = https://github.com/keermanish/react-page-maker.git
