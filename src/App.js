@@ -121,6 +121,7 @@ class App extends Component {
             <Button color="danger" onClick={this._clearState}>Flush Canvas</Button>
           </Col>
           <Col sm="4">
+            <div className="h4 mb-3">Current State</div>
             <ReactJson src={this.state.currentState} collapsed theme="solarized" />
           </Col>
         </Row>
