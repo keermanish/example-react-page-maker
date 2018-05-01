@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'reactstrap';
 
-import { Draggable, Dropzone } from 'react-page-maker';
+import { Draggable, Dropzone } from '../lib/react-page-maker';
 
 const DraggableLayoutR1C2 = (props) => {
   // make sure you are passing `parentID` prop to dropzone
@@ -31,10 +31,10 @@ const DraggableLayoutR1C2 = (props) => {
       <div className="mt-3">
         <Row className="row">
           <Col sm="6">
-            <Dropzone parentID={id} id="canvas-1-1" onDrop={_onDrop} />
+            <Dropzone parentID={id} id="canvas-1-1" onDrop={_onDrop} placeholder="Drop Here" />
           </Col>
           <Col sm="6">
-            <Dropzone parentID={id} id="canvas-1-2" onDrop={_onDrop} />
+            <Dropzone parentID={id} id="canvas-1-2" onDrop={_onDrop} placeholder="Drop Here" />
           </Col>
         </Row>
       </div>

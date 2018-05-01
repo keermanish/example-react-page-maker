@@ -9,7 +9,7 @@ import {
   Trash,
   core,
   registerPaletteElements
-} from 'react-page-maker';
+} from './lib/react-page-maker';
 
 import { elements } from './const';
 import DraggableTextbox from './elements/DraggableTextbox';
@@ -62,7 +62,8 @@ class App extends Component {
     payload: {
       fname: 'Manish',
       lname: 'Keer'
-    }
+    },
+    elementProps: {}
   }, {
     type: elements.DROPDOWN,
     name: 'Dropdown Field',
@@ -80,12 +81,11 @@ class App extends Component {
   _onDrop = (data, cb) => {
     // get actual data. It can be async call or some modal to fetch data
     const name = window.prompt('Enter name of field');
-    const id = window.prompt('Enter id of field');
 
     const result = cb({
       ...data,
       name: name || data.name,
-      id: id || data.id
+      id: name || data.id
     });
   }
 
@@ -98,7 +98,7 @@ class App extends Component {
       <div className="App container">
         <Row className="page-builder row">
           <Col sm="8" className="canvas-container">
-            <Canvas onDrop={this._onDrop} initialElements={this.initialElements}/>
+            <Canvas onDrop={this._onDrop} initialElements={this.initialElements} placeholder="Drop Here" />
           </Col>
           <Col sm="4">
             <Palette paletteElements={this.paletteItemsToBeRendered} />

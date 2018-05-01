@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormGroup, Label, Input, Col, Row } from 'reactstrap';
 
-import { Draggable } from 'react-page-maker';
+import { Draggable } from '../lib/react-page-maker';
 
 const DraggableTextbox = (props) => {
   const { showBasicContent, ...rest }= props;

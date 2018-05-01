@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 
-import { Draggable, Dropzone } from 'react-page-maker';
+import { Draggable, Dropzone } from '../lib/react-page-maker';
 
 class DraggableLayoutR3C3 extends Component {
   _onDrop = (data, cb) => {
@@ -37,35 +37,35 @@ class DraggableLayoutR3C3 extends Component {
         <div className="mt-3">
           <Row className="mb-3">
             <Col sm="4">
-              <Dropzone parentID={id} id="canvas-1-1" onDrop={this._onDrop} capacity={2} />
+              <Dropzone placeholder="Drop Here" parentID={id} id="canvas-1-1" onDrop={this._onDrop} capacity={2} />
             </Col>
             <Col sm="4">
-              <Dropzone parentID={id} id="canvas-1-2" onDrop={this._onDrop} capacity={1} />
+              <Dropzone placeholder="Drop Here" parentID={id} id="canvas-1-2" onDrop={this._onDrop} capacity={1} />
             </Col>
             <Col sm="4">
-              <Dropzone parentID={id} id="canvas-1-3" onDrop={this._onDrop} capacity={1} />
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col sm="4">
-              <Dropzone parentID={id} id="canvas-2-1" onDrop={this._onDrop} capacity={1} />
-            </Col>
-            <Col sm="4">
-              <Dropzone parentID={id} id="canvas-2-2" onDrop={this._onDrop} capacity={1} />
-            </Col>
-            <Col sm="4">
-              <Dropzone parentID={id} id="canvas-2-3" onDrop={this._onDrop} capacity={1} />
+              <Dropzone placeholder="Drop Here" parentID={id} id="canvas-1-3" onDrop={this._onDrop} capacity={1} />
             </Col>
           </Row>
           <Row className="mb-3">
             <Col sm="4">
-              <Dropzone parentID={id} id="canvas-3-1" onDrop={this._onDrop} capacity={1} />
+              <Dropzone placeholder="Drop Here" parentID={id} id="canvas-2-1" onDrop={this._onDrop} capacity={1} />
             </Col>
             <Col sm="4">
-              <Dropzone parentID={id} id="canvas-3-2" onDrop={this._onDrop} capacity={1} />
+              <Dropzone placeholder="Drop Here" parentID={id} id="canvas-2-2" onDrop={this._onDrop} capacity={1} />
             </Col>
             <Col sm="4">
-              <Dropzone parentID={id} id="canvas-3-3" onDrop={this._onDrop} capacity={1} />
+              <Dropzone placeholder="Drop Here" parentID={id} id="canvas-2-3" onDrop={this._onDrop} capacity={1} />
+            </Col>
+          </Row>
+          <Row className="mb-3">
+            <Col sm="4">
+              <Dropzone placeholder="Drop Here" parentID={id} id="canvas-3-1" onDrop={this._onDrop} capacity={1} />
+            </Col>
+            <Col sm="4">
+              <Dropzone placeholder="Drop Here" parentID={id} id="canvas-3-2" onDrop={this._onDrop} capacity={1} />
+            </Col>
+            <Col sm="4">
+              <Dropzone placeholder="Drop Here" parentID={id} id="canvas-3-3" onDrop={this._onDrop} capacity={1} />
             </Col>
           </Row>
         </div>
