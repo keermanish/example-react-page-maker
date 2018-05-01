@@ -18,10 +18,21 @@ const DraggableLayoutR1C2 = (props) => {
   }
 
   const _onDrop = (data, cb) => {
-    const fId = window.prompt('Enter unique id');
-    return cb({
+    if (data.payload && data.payload.dataAlreadySet) {
+      return cb(data);
+    }
+
+    // get actual data. It can be async call or some modal to fetch data
+    const name = window.prompt('Enter name of field');
+
+    const result = cb({
       ...data,
-      id: fId
+      name: name || data.name,
+      id: name || data.id,
+      payload: {
+        ...data.payload,
+        dataAlreadySet: true// just a flag to avoid multiple prompt
+      }
     });
   };
 

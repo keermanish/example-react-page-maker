@@ -79,13 +79,21 @@ class App extends Component {
   }]
 
   _onDrop = (data, cb) => {
+    if (data.payload && data.payload.dataAlreadySet) {
+      return cb(data);
+    }
+
     // get actual data. It can be async call or some modal to fetch data
     const name = window.prompt('Enter name of field');
 
     const result = cb({
       ...data,
       name: name || data.name,
-      id: name || data.id
+      id: name || data.id,
+      payload: {
+        ...data.payload,
+        dataAlreadySet: true// just a flag to avoid multiple prompt
+      }
     });
   }
 
