@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'reactstrap';
 
-import { Draggable, Dropzone } from '../lib/react-page-maker';
+import { Draggable, Dropzone } from 'react-page-maker';
 
 const DraggableLayoutR1C2 = (props) => {
   // make sure you are passing `parentID` prop to dropzone

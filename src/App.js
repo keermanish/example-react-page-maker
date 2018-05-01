@@ -10,7 +10,7 @@ import {
   Trash,
   core,
   registerPaletteElements
-} from './lib/react-page-maker';
+} from 'react-page-maker';
 
 import { elements } from './const';
 import DraggableTextbox from './elements/DraggableTextbox';
