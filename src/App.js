@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'reactstrap';
+import ReactJson from 'react-json-view';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import {
@@ -38,9 +39,15 @@ class App extends Component {
     }]);
   }
 
+  state = {
+    currentState: []
+  }
+
   componentWillMount() {
     state.addEventListener('change', (newState) => {
-      console.log('new state', newState)
+      this.setState({
+        currentState: newState
+      })
     });
   }
 
@@ -105,13 +112,16 @@ class App extends Component {
     return (
       <div className="App container">
         <Row className="page-builder row">
-          <Col sm="8" className="canvas-container">
+          <Col sm="6" className="canvas-container">
             <Canvas onDrop={this._onDrop} initialElements={this.initialElements} placeholder="Drop Here" />
           </Col>
-          <Col sm="4">
+          <Col sm="2">
             <Palette paletteElements={this.paletteItemsToBeRendered} />
             <Trash />
             <Button color="danger" onClick={this._clearState}>Flush Canvas</Button>
+          </Col>
+          <Col sm="4">
+            <ReactJson src={this.state.currentState} collapsed theme="solarized" />
           </Col>
         </Row>
       </div>
