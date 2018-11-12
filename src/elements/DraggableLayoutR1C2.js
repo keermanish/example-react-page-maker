@@ -7,7 +7,7 @@ import { Draggable, Dropzone } from 'react-page-maker';
 const DraggableLayoutR1C2 = (props) => {
   // make sure you are passing `parentID` prop to dropzone
   // it help to mainatain the state to meta data
-  const { showBasicContent, id, ...rest } = props;
+  const { showBasicContent, showPreview, id, ...rest } = props;
 
   if (showBasicContent) {
     return (
@@ -35,6 +35,23 @@ const DraggableLayoutR1C2 = (props) => {
       }
     });
   };
+
+  if (showPreview) {
+    return (
+      <div>
+        <div className="mt-3">
+          <Row className="row">
+            <Col sm="6">
+              {rest.childNode['canvas-1-1']}
+            </Col>
+            <Col sm="6">
+              {rest.childNode['canvas-1-2']}
+            </Col>
+          </Row>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <Draggable {...props} >

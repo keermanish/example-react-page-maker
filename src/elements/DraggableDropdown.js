@@ -4,7 +4,7 @@ import { FormGroup, Label, Input, Col, Row } from 'reactstrap';
 import { Draggable } from 'react-page-maker';
 
 const DraggableDropdown = (props) => {
-  const { showBasicContent, ...rest }= props;
+  const { showBasicContent, showPreview, ...rest }= props;
 
   if (showBasicContent) {
     return (
@@ -14,6 +14,19 @@ const DraggableDropdown = (props) => {
         }
       </Draggable>
     )
+  }
+
+  if (showPreview) {
+    return (
+      <Label className="col-sm-12">
+        <span>{rest.name}</span>
+        <Input type="select">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </Input>
+      </Label>
+    );
   }
 
   return (

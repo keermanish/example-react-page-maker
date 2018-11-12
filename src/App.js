@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Button } from 'reactstrap';
+import { Row, Col, Button, Container } from 'reactstrap';
 import ReactJson from 'react-json-view';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,6 +9,7 @@ import {
   state,
   Trash,
   core,
+  Preview,
   registerPaletteElements
 } from 'react-page-maker';
 
@@ -124,6 +125,19 @@ class App extends Component {
             <div className="h4 mb-3">Current State</div>
             <ReactJson src={this.state.currentState} collapsed theme="solarized" />
           </Col>
+        </Row>
+        <Row className="m-4">
+          <Preview>
+            {
+              ({ children }) => (
+                <Container>
+                  <h3>Preview</h3>
+                  <hr />
+                  {children}
+                </Container>
+              )
+            }
+          </Preview>
         </Row>
       </div>
     );

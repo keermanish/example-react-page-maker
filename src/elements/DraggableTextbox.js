@@ -4,7 +4,7 @@ import { FormGroup, Label, Input, Col, Row } from 'reactstrap';
 import { Draggable } from 'react-page-maker';
 
 const DraggableTextbox = (props) => {
-  const { showBasicContent, ...rest }= props;
+  const { showBasicContent, showPreview, ...rest }= props;
 
   if (showBasicContent) {
     return (
@@ -16,12 +16,23 @@ const DraggableTextbox = (props) => {
     )
   }
 
+  if (showPreview) {
+    return (
+      <FormGroup className="m-0">
+        <Label className="col-sm-12">
+          <span>{rest.name}</span>
+          <Input type="text" />
+        </Label>
+      </FormGroup>
+    );
+  }
+
   return (
     <Draggable { ...props } >
       <FormGroup className="m-0">
         <Label className="col-sm-12">
           <span>{rest.name}</span>
-            <Input type="text" />
+          <Input type="text" />
         </Label>
       </FormGroup>
     </Draggable>

@@ -21,13 +21,55 @@ class DraggableLayoutR3C3 extends Component {
   }
 
   render() {
-    const { showBasicContent, id, ...rest } = this.props;
+    const { showBasicContent, showPreview, id, ...rest } = this.props;
 
     if (showBasicContent) {
       return (
         <Draggable { ...this.props } >
           <span>{ rest.name || 'Grid Layout' }</span>
         </Draggable>
+      )
+    }
+
+    if (showPreview) {
+      return (
+        <div>
+          <div className="mt-3">
+            <Row className="mb-3">
+              <Col sm="4">
+                {rest.childNode['canvas-1-1']}
+              </Col>
+              <Col sm="4">
+                {rest.childNode['canvas-1-2']}
+              </Col>
+              <Col sm="4">
+                {rest.childNode['canvas-1-3']}
+              </Col>
+            </Row>
+            <Row className="mb-3">
+              <Col sm="4">
+                {rest.childNode['canvas-2-1']}
+              </Col>
+              <Col sm="4">
+                {rest.childNode['canvas-2-2']}
+              </Col>
+              <Col sm="4">
+                {rest.childNode['canvas-2-3']}
+              </Col>
+            </Row>
+            <Row className="mb-3">
+              <Col sm="4">
+                {rest.childNode['canvas-3-1']}
+              </Col>
+              <Col sm="4">
+                {rest.childNode['canvas-3-2']}
+              </Col>
+              <Col sm="4">
+                {rest.childNode['canvas-3-3']}
+              </Col>
+            </Row>
+          </div>
+        </div>
       )
     }
 
