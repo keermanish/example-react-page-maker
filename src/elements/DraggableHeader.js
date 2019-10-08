@@ -26,8 +26,7 @@ class DraggableHeader extends React.Component {
   render() {
     const {
       id, showBasicContent, showPreview,
-      dropzoneID, parentID, name, payload,
-      ...rest
+      dropzoneID, parentID, name, payload
     } = this.props;
 
     const background =  this.state.background ||

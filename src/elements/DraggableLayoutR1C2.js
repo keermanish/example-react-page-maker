@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'reactstrap';
 
 import { Draggable, Dropzone } from 'react-page-maker';
+import {elements} from '../const';
 
 const DraggableLayoutR1C2 = (props) => {
   // make sure you are passing `parentID` prop to dropzone
@@ -33,8 +34,11 @@ const DraggableLayoutR1C2 = (props) => {
     }
 
     // This can be an async call or some modal to fetch data
-    const name = window.prompt('Enter name of field');
-    const id = window.prompt('Enter id of field');
+    let name = data.name;
+    if (data.type === elements.TEXTBOX || data.type === elements.DROPDOWN) {
+      name = window.prompt('Enter name of field');
+    }
+    const id = window.prompt('Please enter unique ID');
 
     const result = cb({
       ...data,

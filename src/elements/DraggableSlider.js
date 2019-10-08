@@ -49,10 +49,7 @@ class DraggableSlider extends React.Component {
   }
 
   render() {
-    const {
-      id, showBasicContent, showPreview,
-      dropzoneID, parentID, name,
-    } = this.props;
+    const { showBasicContent, showPreview } = this.props;
 
     const settings = {
       dots: true,

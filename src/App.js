@@ -114,11 +114,11 @@ class App extends Component {
     id: 'h1'
   }, {
     type: elements.GRID_LAYOUT_3_3,
-    name: '3 by 3 Grid',
+    name: '3 by 3 Grid Layout',
     id: '3-3-grid'
   }, {
     type: elements.GRID_LAYOUT_1_2,
-    name: '1 by 2 Grid',
+    name: '1 by 2 Grid Layout',
     id: '1-2-grid'
   }]
 
@@ -128,9 +128,13 @@ class App extends Component {
       return cb(data);
     }
 
-    // This can be an async call or some modal to fetch data
-    const name = window.prompt('Enter name of field');
-    const id = window.prompt('Enter id of field');
+    let name = data.name;
+
+    if (data.type === elements.TEXTBOX || data.type === elements.DROPDOWN) {
+      name = window.prompt('Enter name of field');
+    }
+
+    const id = window.prompt('Please enter unique ID');
 
     const result = cb({
       ...data,
