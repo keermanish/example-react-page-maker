@@ -1,16 +1,20 @@
 import React from 'react';
 import { FormGroup, Label, Input, Col, Row } from 'reactstrap';
+import { FaTrash } from 'react-icons/fa';
 
-import { Draggable } from 'react-page-maker';
+import { Draggable, state } from 'react-page-maker';
 
 const DraggableTextbox = (props) => {
-  const { showBasicContent, showPreview, ...rest }= props;
+  const {
+    id, showBasicContent, showPreview,
+    dropzoneID, parentID, name
+  } = props;
 
   if (showBasicContent) {
     return (
       <Draggable { ...props } >
         {
-          <span>{ rest.name || 'Textbox' }</span>
+          <span>{ name }</span>
         }
       </Draggable>
     )
@@ -20,19 +24,29 @@ const DraggableTextbox = (props) => {
     return (
       <FormGroup className="m-0">
         <Label className="col-sm-12">
-          <span>{rest.name}</span>
+          <span>{name}</span>
           <Input type="text" />
         </Label>
       </FormGroup>
     );
   }
 
+  const onChange = (e) => {
+    const value = e.target.value;
+    state.updateElement(id, dropzoneID, parentID, { name: value });
+  };
+
   return (
     <Draggable { ...props } >
       <FormGroup className="m-0">
         <Label className="col-sm-12">
-          <span>{rest.name}</span>
-          <Input type="text" />
+          <span>{name}</span>
+          <FaTrash
+            className="pull-right"
+            color="#dc3545"
+            onClick={() => state.removeElement(id, dropzoneID, parentID)}
+          />
+          <Input type="text" onChange={onChange} />
         </Label>
       </FormGroup>
     </Draggable>

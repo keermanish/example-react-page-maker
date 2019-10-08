@@ -1,16 +1,21 @@
 import React from 'react';
 import { FormGroup, Label, Input, Col, Row } from 'reactstrap';
+import { FaTrash } from 'react-icons/fa';
 
-import { Draggable } from 'react-page-maker';
+import { Draggable, state } from 'react-page-maker';
 
 const DraggableDropdown = (props) => {
-  const { showBasicContent, showPreview, ...rest }= props;
+  const {
+    id,
+    showBasicContent, showPreview,
+    dropzoneID, parentID, name
+  } = props;
 
   if (showBasicContent) {
     return (
       <Draggable { ...props } >
         {
-          <span>{ rest.name || 'Dropdown' }</span>
+          <span>{name}</span>
         }
       </Draggable>
     )
@@ -19,7 +24,7 @@ const DraggableDropdown = (props) => {
   if (showPreview) {
     return (
       <Label className="col-sm-12">
-        <span>{rest.name}</span>
+        <span>{name}</span>
         <Input type="select">
           <option>1</option>
           <option>2</option>
@@ -29,12 +34,22 @@ const DraggableDropdown = (props) => {
     );
   }
 
+  const onChange = (e) => {
+    const value = e.target.value;
+    state.updateElement(id, dropzoneID, parentID, { name: value });
+  };
+
   return (
     <Draggable { ...props } >
       <FormGroup className="m-0">
         <Label className="col-sm-12">
-          <span>{rest.name}</span>
-          <Input type="select">
+          <span>{name}</span>
+          <FaTrash
+            className="pull-right"
+            color="#dc3545"
+            onClick={() => state.removeElement(id, dropzoneID, parentID)}
+          />
+          <Input type="select" onChange={onChange}>
             <option>1</option>
             <option>2</option>
             <option>3</option>

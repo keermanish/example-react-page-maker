@@ -1,7 +1,75 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css");
+
 body {
   margin: 0;
   padding: 20px 0;
   font-family: sans-serif;
+}
+
+.relative {
+  position: relative;
+}
+
+.color-picker {
+  width: 100px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+header {
+  position: relative;
+}
+
+.nav-tabs .nav-link {
+  cursor: pointer;
+}
+
+.nav-tabs .nav-link.active {
+  border-color: #dee2e6;
+  background: #dee2e6;
+}
+
+svg {
+  cursor: pointer;
+}
+
+.center-heading {
+  top: 50%;
+  width: 100%;
+  transform: translate(0, -50%);
+  position: absolute;
+  color: white;
+  text-align: center;
+}
+
+.absolute {
+  z-index: 10;
+  position: absolute;
+}
+
+.block-picker {
+  border: 1px solid gray;
+  z-index: 10;
+  position: absolute;
+}
+
+header {
+  margin: 10px;
+  min-height: 100px;
+}
+
+.carousel__next-button,
+.carousel__back-button {
+  position: absolute;
+  top: 50%;
+  height: 24px;
+  margin-top: -12px;
+}
+
+.carousel__next-button {
+  right: 0;
 }
 
 .pull-right {

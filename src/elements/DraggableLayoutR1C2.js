@@ -7,7 +7,16 @@ import { Draggable, Dropzone } from 'react-page-maker';
 const DraggableLayoutR1C2 = (props) => {
   // make sure you are passing `parentID` prop to dropzone
   // it help to mainatain the state to meta data
-  const { showBasicContent, showPreview, id, ...rest } = props;
+  const {
+    dropzoneID,
+    parentID,
+    showBasicContent,
+    showPreview,
+    id,
+    dropzoneProps,
+    initialElements,
+    ...rest
+  } = props;
 
   if (showBasicContent) {
     return (
@@ -18,21 +27,20 @@ const DraggableLayoutR1C2 = (props) => {
   }
 
   const _onDrop = (data, cb) => {
-    if (data.payload && data.payload.dataAlreadySet) {
+    // no need to ask id and name again
+    if (data.payload && data.payload.dropped) {
       return cb(data);
     }
 
-    // get actual data. It can be async call or some modal to fetch data
+    // This can be an async call or some modal to fetch data
     const name = window.prompt('Enter name of field');
+    const id = window.prompt('Enter id of field');
 
     const result = cb({
       ...data,
-      name: name || data.name,
-      id: name || data.id,
-      payload: {
-        ...data.payload,
-        dataAlreadySet: true// just a flag to avoid multiple prompt
-      }
+      name,
+      id,
+      payload: { dropped: true }
     });
   };
 
@@ -53,16 +61,32 @@ const DraggableLayoutR1C2 = (props) => {
     )
   }
 
+  const filterInitialElements = (dID) => {
+    return initialElements.filter(e => e.dropzoneID === dID) || [];
+  };
+
   return (
     <Draggable {...props} >
       <span>{ rest.name }</span>
       <div className="mt-3">
         <Row className="row">
           <Col sm="6">
-            <Dropzone parentID={id} id="canvas-1-1" onDrop={_onDrop} placeholder="Drop Here" />
+            <Dropzone
+              {...dropzoneProps}
+              initialElements={filterInitialElements('canvas-1-1')}
+              id="canvas-1-1"
+              onDrop={_onDrop}
+              placeholder="Drop Here"
+            />
           </Col>
           <Col sm="6">
-            <Dropzone parentID={id} id="canvas-1-2" onDrop={_onDrop} placeholder="Drop Here" />
+            <Dropzone
+              {...dropzoneProps}
+              initialElements={filterInitialElements('canvas-1-2')}
+              id="canvas-1-2"
+              onDrop={_onDrop}
+              placeholder="Drop Here"
+            />
           </Col>
         </Row>
       </div>

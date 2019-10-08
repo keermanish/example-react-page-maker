@@ -1,6 +1,8 @@
 
 export const elements = {
   TEXTBOX: 'TEXTBOX',
+  SLIDER: 'SLIDER',
+  HEADER: 'HEADER',
   DROPDOWN: 'DROPDOWN',
   GRID_LAYOUT_3_3: 'GRID_LAYOUT_3_3',
   GRID_LAYOUT_1_2: 'GRID_LAYOUT_1_2'

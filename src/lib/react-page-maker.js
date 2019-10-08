@@ -4,6 +4,7 @@ import DropzoneImp from './react-page-maker/src/components/Dropzone/Dropzone';
 import DraggableImp from './react-page-maker/src/components/Draggable/Draggable';
 import PaletteImp from './react-page-maker/src/components/Palette/Palette';
 import TrashImp from './react-page-maker/src/components/Trash/Trash';
+import PreviewImp from './react-page-maker/src/components/Preview/Preview';
 
 // import all API's
 import stateImp from './react-page-maker/src/core/state';
@@ -18,6 +19,7 @@ export const Dropzone = DropzoneImp;
 export const Draggable = DraggableImp;
 export const Palette = PaletteImp;
 export const Trash = TrashImp;
+export const Preview = PreviewImp;
 
 // all open API's
 export const state = stateImp;
